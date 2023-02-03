@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Verificador de Jogos da Lotomania</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Verificador de Jogos da Lotomania</h1>
+
+    <form>
+      <div>
+        <label for="game">Seu jogo:</label>
+        <input type="text" id="game" name="game">
+      </div>
+
+      <div>
+        <label for="winningNumbers">Números sorteados:</label>
+        <input type="text" id="winningNumbers" name="winningNumbers">
+      </div>
+
+      <button type="button" onclick="checkLotomaniaGame()">Verificar</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
