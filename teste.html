@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Meu Sistema de Tarefas</title>
+</head>
+<body>
+	<h1>Meu Sistema de Tarefas</h1>
+	<form action="" method="post">
+		<input type="text" name="task" placeholder="Nova tarefa">
+		<input type="submit" name="add_task" value="Adicionar Tarefa">
+	</form>
+	<hr>
+	<h2>Minhas Tarefas</h2>
+	<ul>
+		<?php
+			if (isset($_POST['add_task'])) {
+				$task = $_POST['task'];
+				if (!empty($task)) {
+					$handle = fopen('tasks.txt', 'a');
+					fwrite($handle, $task . "\n");
+					fclose($handle);
+				}
+			}
+			if (file_exists('tasks.txt')) {
+				$tasks = file('tasks.txt');
+				foreach ($tasks as $task) {
+					echo "<li>$task</li>";
+				}
+			}
+		?>
+	</ul>
+</body>
+</html>
